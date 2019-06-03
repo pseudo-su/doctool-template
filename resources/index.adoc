@@ -10,9 +10,9 @@
 == Openapi Contracts
 
 * Simple Openapi - [ link:openapi-contracts/simple.openapi.redoc.html[redoc] ]
-* Simple Swagger - [ link:openapi-contracts/simple.swagger.redoc.html[redoc] | link:openapi-contracts/simple.swagger.doc.html[html doc] | link:openapi-contracts/simple.swagger.doc.pdf[pdf doc] ]
+* Simple Swagger - [ link:openapi-contracts/simple.swagger.redoc.html[redoc] | link:openapi-contracts/simple.swagger.doc.html[html doc] ]
 * Expanded Openapi - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] ]
-* Expanded Swagger - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] | link:openapi-contracts/expanded.swagger.doc.html[html doc] | link:openapi-contracts/expanded.swagger.doc.pdf[pdf doc] ]
+* Expanded Swagger - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] | link:openapi-contracts/expanded.swagger.doc.html[html doc] ]
 
 
 == Architectural Decision Records
