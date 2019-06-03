@@ -10,10 +10,10 @@ set -Eeuo pipefail
 generate_html_file () {
   local full_file_path=$1
   local file_base_a="${full_file_path%.*}"
-  local file_base="${file_base_a#*resources/}"
+  local file_base="${file_base_a#*input/}"
   local file_suffix=html
 
-  local output="./docs/$file_base.$file_suffix"
+  local output="./output/$file_base.$file_suffix"
   echo "Building: $full_file_path -> $output"
 
 diag="$(sed 's,.*<\(diagram [^>]*\)>\(.*\)<\(/diagram\)>.*,\1FOO\2BAR\3,g' <"$full_file_path"|\

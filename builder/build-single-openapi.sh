@@ -4,10 +4,10 @@ set -Eeuo pipefail
 generate_redoc_file () {
   local full_file_path=$1
   local file_base_a="${full_file_path%.*}"
-  local file_base="${file_base_a#*resources/}"
+  local file_base="${file_base_a#*input/}"
   local file_suffix=redoc.html
 
-  local output="./docs/$file_base.$file_suffix"
+  local output="./output/$file_base.$file_suffix"
   echo "Building: $full_file_path -> $output"
 
   redoc-cli bundle \
@@ -18,7 +18,7 @@ generate_redoc_file () {
 generate_html_and_pdf() {
   local full_file_path=$1
   local file_base_a="${full_file_path%.*}"
-  local file_base="${file_base_a#*resources/}"
+  local file_base="${file_base_a#*input/}"
   local temp_file_suffix=adoc
 
   # TODO: swagger2markup doesn't work for openapi v3, find/make an alternative
@@ -50,7 +50,7 @@ generate_pdf_from_temp () {
   local file_base="${file_base_a#*tmp/}"
   local file_suffix=pdf
 
-  local output="./docs/$file_base.doc.$file_suffix"
+  local output="./output/$file_base.doc.$file_suffix"
   echo "Building: $full_file_path -> $output"
 
   asciidoctor \
@@ -67,7 +67,7 @@ generate_html_from_temp () {
   local file_base="${file_base_a#*tmp/}"
   local file_suffix=html
 
-  local output="./docs/$file_base.doc.$file_suffix"
+  local output="./output/$file_base.doc.$file_suffix"
   echo "Building: $full_file_path -> $output"
 
   asciidoctor \

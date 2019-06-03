@@ -12,7 +12,7 @@
 
 * Simple Openapi - [ link:openapi-contracts/simple.openapi.redoc.html[redoc] ]
 * Simple Swagger - [ link:openapi-contracts/simple.swagger.redoc.html[redoc] | link:openapi-contracts/simple.swagger.doc.html[html doc] ]
-* Expanded Openapi - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] ]
+* Expanded Openapi - [ link:openapi-contracts/expanded.openapi.redoc.html[redoc] ]
 * Expanded Swagger - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] | link:openapi-contracts/expanded.swagger.doc.html[html doc] ]
 
 

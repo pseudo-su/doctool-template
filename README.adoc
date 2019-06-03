@@ -20,46 +20,17 @@ The main goal of this project is to have as much documenation as possible tracke
 
 == Quick Start
 
-1. Install dependencies
+1. Build
 +
 [source, bash]
 ----
-# Asciidoctor for asciidoc and PlantUML support
-$ gem install pygments.rb
-$ gem install asciidoctor
-$ gem install asciidoctor-diagram
-$ gem install asciidoctor-pdf --pre
-
-# Pygments for code block highlighting support
-$ gem install pygments.rb
-
-# Redoc for Openapi/Swagger support
-$ npm install -g redoc-cli
-
-## MxModel support (draw.io)
-# The draw.io desktop app supports editing local mxmodel files
-$ open https://github.com/jgraph/drawio-desktop/releases
-
-# Install swagger2markup locally
-# $ wget https://jcenter.bintray.com/io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar -O ./bin/swagger2markup.jar
-
-# TODO: swagger2markup doesn't work for openapi v3, find/make an alternative
-
+$ ./build.sh
 ----
 
-2. Build
+2. View
 +
 [source, bash]
 ----
-# Compile all .adoc files to .pdf
-$ ./build-all.sh
-----
-
-3. View
-+
-[source, bash]
-----
-# serve static assets using web server
 $ open docs/index.html
 ----
 
@@ -86,13 +57,4 @@ NOTE: You can embed the generated mxgraph html using `mxgraph::eapi.mxgraph.html
 
 * investigate switching to asciidoctor.js [ link:https://github.com/eshepelyuk/asciidoctor-plantuml.js/blob/master/README.adoc[diagrams's] | link:https://github.com/asciidoctor/asciidoctor.js/issues/102[pdf's] | link:https://github.com/asciidoctor/asciidoctor.js/issues/427[source syntax highlighting]]
 * Investigate better replacement for `./build-single-mxgraph.sh` that can actually export images
-* Publish a docker image that obfuscates the hodge-podge of different tools from the project
-+
-.Example
-[source, bash]
-....
-$ docker run \
-  --mount type=bind,source=./resources,target=/input \
-  --mount type=bind,source=./docs,target=/output \
-  doctool-generator-imagename
-....
+* Publish the docker container instead of storing definition in `./builder/`
