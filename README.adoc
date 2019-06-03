@@ -1,18 +1,20 @@
 = Doctool Template
 :last-update-label!:
 
-Description: Repository to document and contribute to design documenation
+**Description**: Repository to store, contribute and showcase team documenation
 
-Deployed URL: link:https://pseudo-su.github.io/doctool-template/[https://pseudo-su.github.io/doctool-template/index.html]
+**Deployed URL**: link:https://pseudo-su.github.io/doctool-template/[https://pseudo-su.github.io/doctool-template/index.html]
 
 // BOOTSTRAP: Remove this section when bootstrapping from template
 == About this template
 
-This template pulls pulls together various tools to make maintaining a single documenation repository easier.
+This template pulls together various tools to make maintaining and publishing documentation from a single source controlled repository easier.
 
 * Asciidoc - for templating link:https://asciidoctor.org/docs/asciidoc-writers-guide/[more info]
+* OpenAPI (swagger) - for API documenation link:https://swagger.io/docs/specification/about/[more info]
 * PlantUML - for diagrams link:https://asciidoctor.org/docs/asciidoctor-diagram/[more info]
 * MxModel - for draw.io style diagrams link:https://github.com/jgraph/drawio-diagrams[examples]
+* Pygments - Syntax highlighting link:http://pygments.org/languages/[supported languages]
 
 The main goal of this project is to have as much documenation as possible tracked in a single version control system.
 
@@ -26,7 +28,6 @@ The main goal of this project is to have as much documenation as possible tracke
 $ gem install pygments.rb
 $ gem install asciidoctor
 $ gem install asciidoctor-diagram
-https://github.com/eshepelyuk/asciidoctor-plantuml.js/blob/master/README.adoc
 $ gem install asciidoctor-pdf --pre
 
 # Pygments for code block highlighting support
@@ -36,9 +37,8 @@ $ gem install pygments.rb
 $ npm install -g redoc-cli
 
 ## MxModel support (draw.io)
-$ npm install -g git+https://git@github.com:languitar/drawio-batch.git
-# TODO: generate html/images/svg from mxModel
-# Also download this for local editing: https://github.com/jgraph/drawio-desktop/releases
+# The draw.io desktop app supports editing local mxmodel files
+$ open https://github.com/jgraph/drawio-desktop/releases
 
 # Install swagger2markup locally
 # $ wget https://jcenter.bintray.com/io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar -O ./bin/swagger2markup.jar
@@ -55,12 +55,12 @@ $ npm install -g git+https://git@github.com:languitar/drawio-batch.git
 $ ./build-all.sh
 ----
 
-3. Run
+3. View
 +
 [source, bash]
 ----
 # serve static assets using web server
-$ serve -s docs
+$ open docs/index.html
 ----
 
 == Generation rules
@@ -81,3 +81,8 @@ NOTE: unable to geneate `doc.html` at the moment because swagger2markup link:htt
 ** `*.mxgraph.html`
 
 NOTE: You can embed the generated mxgraph html using `mxgraph::eapi.mxgraph.html[]`
+
+== Roadmap / TODO list
+
+* investigate switching to [ link:https://github.com/eshepelyuk/asciidoctor-plantuml.js/blob/master/README.adoc[diagrams's] | link:https://github.com/asciidoctor/asciidoctor.js/issues/102[pdf's] | link:https://github.com/asciidoctor/asciidoctor.js/issues/427[source syntax highlighting]]
+* Investigate better replacement for `./build-single-mxgraph.sh` that can actually export images
