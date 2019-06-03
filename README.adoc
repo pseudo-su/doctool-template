@@ -1,0 +1,66 @@
+= Doctool Template
+:last-update-label!:
+
+Repository to document and contribute to design documenation
+
+== Quick Start
+
+1. Install dependencies
++
+[bash]
+----
+# Asciidoctor for asciidoc and PlantUML support
+$ gem install asciidoctor
+$ gem install asciidoctor-diagram
+https://github.com/eshepelyuk/asciidoctor-plantuml.js/blob/master/README.adoc
+$ gem install asciidoctor-pdf --pre
+
+# Redoc for Openapi/Swagger support
+$ npm install -g redoc-cli
+
+## MxModel support (draw.io)
+$ npm install -g git+https://git@github.com:languitar/drawio-batch.git
+# TODO: generate html/images/svg from mxModel
+# Also download this for local editing: https://github.com/jgraph/drawio-desktop/releases
+
+# Install swagger2markup locally
+# $ wget https://jcenter.bintray.com/io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar -O ./bin/swagger2markup.jar
+
+# TODO: swagger2markup doesn't work for openapi v3, find/make an alternative
+
+----
+
+2. Build
++
+[bash]
+----
+# Compile all .adoc files to .pdf
+$ ./build-all.sh
+----
+
+3. Run
++
+[bash]
+----
+# serve static assets using web server
+$ serve -s docs
+----
+
+== Generation rules
+
+* `resources/*.adoc` generates:
+** `docs/*.html`
+** `docs/*.pdf`
+* `*.openapi.yml` (v3) generates:
+** `*.openapi.redoc.html`
+
+NOTE: swagger2markup is link:https://github.com/Swagger2Markup/swagger2markup/issues/340[not supported] for openapi (v3)
+
+* `*.swagger.yml` (v2) generates:
+** `*.swagger.redoc.html`
+** `*.swagger.doc.html`
+** `*.swagger.doc.pdf`
+* `*.mxgraph.xml` generates:
+** `*.mxgraph.html`
+
+NOTE: You can embed the generated mxgraph html using `mxgraph::eapi.mxgraph.html[]`
