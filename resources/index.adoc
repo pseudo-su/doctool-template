@@ -50,7 +50,7 @@
 ....
 
 .PlantUML Diagram
-[plantuml, diagram-classes, png]     
+[plantuml, plantuml-example, png]     
 ....
 class BlockProcessor
 class DiagramBlock
@@ -62,17 +62,220 @@ DiagramBlock <|-- DitaaBlock
 DiagramBlock <|-- PlantUmlBlock
 ....
 
-.Example using C4-PlantUML
-[plantuml, diagram]
+.Simple Example PlantUML using AWS-PlantUML
+[plantuml, aws-plantuml-simple-example]
 ....
-@startuml C4_Elements
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/release/1-0/C4_Container.puml
+@startuml
+!include <aws/common>
+!include <aws/Storage/AmazonS3/AmazonS3>
+!include <aws/Storage/AmazonS3/bucket/bucket>
 
-Person(personAlias, "Label", "Optional Description")
-Container(containerAlias, "Label", "Technology", "Optional Description")
-System(systemAlias, "Label", "Optional Description")
+AMAZONS3(s3_internal)
+AMAZONS3(s3_partner,"Vendor's S3")
+s3_internal <- s3_partner
+@enduml
+....
 
-Rel(personAlias, containerAlias, "Label", "Optional Technology")
+.Complex Example PlantUML using AWS-PlantUML
+[plantuml, aws-plantuml-complex-example]
+....
+@startuml
+!include <aws/common>
+!include <aws/ApplicationServices/AmazonAPIGateway/AmazonAPIGateway>
+!include <aws/Compute/AWSLambda/AWSLambda>
+!include <aws/Compute/AWSLambda/LambdaFunction/LambdaFunction>
+!include <aws/Database/AmazonDynamoDB/AmazonDynamoDB>
+!include <aws/Database/AmazonDynamoDB/table/table>
+!include <aws/General/AWScloud/AWScloud>
+!include <aws/General/client/client>
+!include <aws/General/user/user>
+!include <aws/SDKs/JavaScript/JavaScript>
+!include <aws/Storage/AmazonS3/AmazonS3>
+!include <aws/Storage/AmazonS3/bucket/bucket>
+
+
+skinparam componentArrowColor Black
+skinparam componentBackgroundColor White
+skinparam nodeBackgroundColor White
+skinparam agentBackgroundColor White
+skinparam artifactBackgroundColor White
+
+
+USER(user)
+CLIENT(browser)
+JAVASCRIPT(js,SDK)
+
+AWSCLOUD(aws) {
+
+    AMAZONS3(s3) {
+        BUCKET(site,www.insecurity.co)
+        BUCKET(logs,logs.insecurity.co)
+    }
+
+    AMAZONAPIGATEWAY(api)
+
+    AWSLAMBDA(lambda) {
+        LAMBDAFUNCTION(addComments,addComments)
+    }
+
+    AMAZONDYNAMODB(dynamo) {
+        TABLE(comments,Comments)
+    }
+}
+
+user - browser
+
+browser -d-> site :**1a**) get\nstatic\ncontent
+site ~> logs :1a
+site .u.> browser :**1b**
+browser - js
+js -r-> comments :**2a**) get\ncomments
+comments ..> js :**2b**
+
+js -r-> api :**3**) add\ncomment
+
+api -d-> addComments :**4**
+
+addComments -> comments :**5**
+
+comments ..> js :**6**) new\ncomments
+@enduml
+....
+
+.Example Azure PlantUML example
+[plantuml, example-azure-plantuml]
+....
+@startuml
+
+!include <azure/AzureCommon.puml>
+!include <azure/Analytics/AzureEventHub.puml>
+!include <azure/Analytics/AzureStreamAnalytics.puml>
+!include <azure/Databases/AzureCosmosDb.puml>
+
+left to right direction
+
+agent "Device Simulator" as devices #fff
+
+AzureEventHub(fareDataEventHub, "Fare Data", "PK: Medallion HackLicense VendorId; 3 TUs")
+AzureEventHub(tripDataEventHub, "Trip Data", "PK: Medallion HackLicense VendorId; 3 TUs")
+AzureStreamAnalytics(streamAnalytics, "Stream Processing", "6 SUs")
+AzureCosmosDb(outputCosmosDb, "Output Database", "1,000 RUs")
+
+devices --> fareDataEventHub
+devices --> tripDataEventHub
+fareDataEventHub --> streamAnalytics
+tripDataEventHub --> streamAnalytics
+streamAnalytics --> outputCosmosDb
+
+@enduml
+....
+
+.Example Tupadr3 PlantUML example
+[plantuml, example-tupadr3-plantuml]
+....
+@startuml
+!include <tupadr3/common>
+!include <tupadr3/font-awesome/server>
+!include <tupadr3/font-awesome/database>
+
+title Styling example
+
+FA_SERVER(web1,web1) #Green
+FA_SERVER(web2,web2) #Yellow
+FA_SERVER(web3,web3) #Blue
+FA_SERVER(web4,web4) #YellowGreen
+
+FA_DATABASE(db1,LIVE,database,white) #RoyalBlue
+FA_DATABASE(db2,SPARE,database) #Red
+
+db1 <--> db2
+
+web1 <--> db1
+web2 <--> db1
+web3 <--> db1
+web4 <--> db1
+@enduml
+....
+
+.Example Material Design Icons PlantUML example
+[plantuml, example-material-plantuml]
+....
+@startuml
+!include <material/common>
+' To import the sprite file you DON'T need to place a prefix!
+!include <material/folder_move>
+
+MA_FOLDER_MOVE(Red, 1, dir, rectangle, "A label")
+@enduml
+....
+
+.Example using cplant PlantUML theme
+[plantuml, cplant-plantuml-example]
+....
+@startuml
+!define BLACK   #363D5D
+!define RED     #F6363F
+!define PINK    #F6216E
+!define MAGENTA #A54FBD
+!define GREEN   #37A77C
+!define YELLOW  #F97A00
+!define BLUE    #1E98F2
+!define CYAN    #25AFCA
+!define WHITE   #FEF2DC
+
+' Base Setting
+skinparam Shadowing false
+skinparam BackgroundColor transparent
+skinparam ComponentStyle uml2
+skinparam Default {
+  FontName  'Hiragino Sans'
+  FontColor BLACK
+  FontSize  10
+  FontStyle plain
+}
+
+skinparam Sequence {
+  ArrowThickness 1
+  ArrowColor RED
+  ActorBorderThickness 1
+  LifeLineBorderColor GREEN
+  ParticipantBorderThickness 0
+}
+skinparam Participant {
+  BackgroundColor BLACK
+  BorderColor BLACK
+  FontColor #FFFFFF
+}
+
+skinparam Actor {
+  BackgroundColor BLACK
+  BorderColor BLACK
+}
+
+title <size:20>Sample Sequence</size>
+
+actor User
+participant "First Class" as A
+participant "Second Class" as B
+participant "Last Class" as C
+
+User -> A: DoWork
+activate A
+
+A -> B: Create Request
+activate B
+
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+
+B --> A: Request Created
+deactivate B
+
+A --> User: Done
+deactivate A
+
 @enduml
 ....
 
