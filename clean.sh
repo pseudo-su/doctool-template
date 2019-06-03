@@ -1,6 +1,8 @@
 #!/bin/bash
 set -Eeuo pipefail
 
-rm -r ./docs
+if [ -d "./docs" ]; then
+  rm -r ./docs
+fi
 
 mkdir -p ./docs
