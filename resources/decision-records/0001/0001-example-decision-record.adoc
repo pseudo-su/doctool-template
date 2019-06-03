@@ -1,3 +1,4 @@
+// BOOTSTRAP: remove this example decision record folder
 = Example decision record
 :last-update-label!:
 

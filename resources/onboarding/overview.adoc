@@ -1,6 +1,9 @@
 = Architecture Overview
 :last-update-label!:
 
+Team/Project/Architecture overview description
+
+// BOOTSTRAP: add your own mxgraph diagram or remove overview.adoc and overview.mxgraph.xml
 == Overview Diagram
 
 .Overview Diagram

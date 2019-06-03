@@ -18,6 +18,31 @@ This template pulls together various tools to make maintaining and publishing do
 
 The main goal of this project is to have as much documenation as possible tracked in a single version control system.
 
+=== Bootstrapping TODO list
+
+* Choose a `<project-name>` and clone this repository
++
+[source, bash]
+....
+$ git clone git@github.com:pseudo-su/doctool-template.git <project-name>
+$ cd <project-name>
+....
+* Find all references to `// BOOTSTRAP: <task>` comments in the project and follow their instructions
+* Run `./clean.sh`
+* Run `./build.sh`
+* Create fresh git repo
++
+[source, bash]
+....
+$ rm -r .git
+$ git init
+$ git add .
+$ git commit -m 'Bootrap from pseudo-su/doctool-template'
+# Optional: push to a new/empty git remote
+$ git remote add origin <your-git-remote-url>
+$ git push -u origin master
+....
+
 == Quick Start
 
 1. Build

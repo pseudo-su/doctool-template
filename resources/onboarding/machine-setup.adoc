@@ -1,4 +1,6 @@
 = Machine Setup
 :last-update-label!:
 
+// BOOTSTRAP: add in machine setup instructions or remove this file
+
 This repository provides the details for how new teammembers can update bootstrap their machine.

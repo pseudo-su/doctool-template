@@ -1,6 +1,7 @@
 == Glossary
 :last-update-label!:
 
+// BOOTSTRAP: Add some glossary tems or remove this file
 [width="100%",cols="37%,63%",options="header",]
 |===
 |Acronym |Definition

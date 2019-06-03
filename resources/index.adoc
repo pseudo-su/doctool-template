@@ -20,10 +20,12 @@
 
 * link:decision-records/0001/0001-example-decision-record.html[0001 Example decision record]
 
+// BOOTSTRAP: remove the links here and clean out the misc/ folder
 == Miscellaneous Docs
 
 * link:misc/some-feature/workflow.html[Some Feature Workflow]
 
+// BOOTSTRAP: remove examples
 == Examples
 
 .Ditaa Diagram
