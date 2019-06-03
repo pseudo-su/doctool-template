@@ -55,7 +55,7 @@ $ serve -s docs
 * `*.openapi.yml` (v3) generates:
 ** `*.openapi.redoc.html`
 
-NOTE: swagger2markup is link:https://github.com/Swagger2Markup/swagger2markup/issues/340[not supported] for openapi (v3)
+NOTE: swagger2markup link:https://github.com/Swagger2Markup/swagger2markup/issues/340[does not support] openapi (v3)
 
 * `*.swagger.yml` (v2) generates:
 ** `*.swagger.redoc.html`
