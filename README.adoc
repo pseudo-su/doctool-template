@@ -1,9 +1,20 @@
 = Doctool Template
 :last-update-label!:
 
+Description: Repository to document and contribute to design documenation
+
 Deployed URL: link:https://pseudo-su.github.io/doctool-template/[https://pseudo-su.github.io/doctool-template/index.html]
 
-Repository to document and contribute to design documenation
+// BOOTSTRAP: Remove this section when bootstrapping from template
+== About this template
+
+This template pulls pulls together various tools to make maintaining a single documenation repository easier.
+
+* Asciidoc - for templating link:https://asciidoctor.org/docs/asciidoc-writers-guide/[more info]
+* PlantUML - for diagrams link:https://asciidoctor.org/docs/asciidoctor-diagram/[more info]
+* MxModel - for draw.io style diagrams link:https://github.com/jgraph/drawio-diagrams[examples]
+
+The main goal of this project is to have as much documenation as possible tracked in a single version control system.
 
 == Quick Start
 
@@ -54,12 +65,14 @@ $ serve -s docs
 
 == Generation rules
 
-* `resources/*.adoc` generates:
-** `docs/*.html`
+This project looks at all files in the `resources/` folder and generates corresponding files in the `docs/` folder depending on the filename suffix.
+
+* `*.adoc` generates:
+** `*.html`
 * `*.openapi.yml` (v3) generates:
 ** `*.openapi.redoc.html`
 
-NOTE: swagger2markup link:https://github.com/Swagger2Markup/swagger2markup/issues/340[does not support] openapi (v3)
+NOTE: unable to geneate `doc.html` at the moment because swagger2markup link:https://github.com/Swagger2Markup/swagger2markup/issues/340[does not support] openapi (v3)
 
 * `*.swagger.yml` (v2) generates:
 ** `*.swagger.redoc.html`
