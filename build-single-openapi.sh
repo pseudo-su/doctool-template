@@ -40,7 +40,7 @@ generate_html_and_pdf() {
   # the datestamp in the footer that always changes
   ex -sc '2i|:last-update-label!:' -cx $temp_file_path
 
-  generate_pdf_from_temp $temp_file_path
+  # generate_pdf_from_temp $temp_file_path
   generate_html_from_temp $temp_file_path
 }
 

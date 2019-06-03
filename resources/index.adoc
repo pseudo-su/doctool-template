@@ -1,0 +1,58 @@
+= Example Documentation Website
+:last-update-label!:
+
+== Onboarding and overview
+
+* link:onboarding/overview.html[Architecture overview]
+* link:onboarding/machine-setup.html[Machine Setup]
+* link:onboarding/glossary.html[Glossary]
+
+== Openapi Contracts
+
+* Simple Openapi - [ link:openapi-contracts/simple.openapi.redoc.html[redoc] ]
+* Simple Swagger - [ link:openapi-contracts/simple.swagger.redoc.html[redoc] | link:openapi-contracts/simple.swagger.doc.html[html doc] | link:openapi-contracts/simple.swagger.doc.pdf[pdf doc] ]
+* Expanded Openapi - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] ]
+* Expanded Swagger - [ link:openapi-contracts/expanded.swagger.redoc.html[redoc] | link:openapi-contracts/expanded.swagger.doc.html[html doc] | link:openapi-contracts/expanded.swagger.doc.pdf[pdf doc] ]
+
+
+== Architectural Decision Records
+
+* link:decisions/0001/0001-example-decision-record.html[0001 Example decision record]
+
+== Miscellaneous Docs
+
+* link:misc/some-feature/workflow.html[Some Feature Workflow]
+
+== Example Generated diagrams
+
+[ditaa]
+....
+                   +-------------+
+                   | Asciidoctor |-------+
+                   |   diagram   |       |
+                   +-------------+       | PNG out
+                       ^                 |
+                       | ditaa in        |
+                       |                 v
+ +--------+   +--------+----+    /---------------\
+ |        | --+ Asciidoctor +--> |               |
+ |  Text  |   +-------------+    |   Beautiful   |
+ |Document|   |   !magic!   |    |    Output     |
+ |     {d}|   |             |    |               |
+ +---+----+   +-------------+    \---------------/
+     :                                   ^
+     |          Lots of work             |
+     +-----------------------------------+
+....
+
+[plantuml, diagram-classes, png]     
+....
+class BlockProcessor
+class DiagramBlock
+class DitaaBlock
+class PlantUmlBlock
+
+BlockProcessor <|-- DiagramBlock
+DiagramBlock <|-- DitaaBlock
+DiagramBlock <|-- PlantUmlBlock
+....

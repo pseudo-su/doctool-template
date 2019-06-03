@@ -1,0 +1,10 @@
+
+!include Common.iuml
+
+!define FC(id, name, title, stereotype) participant "<b>title</b>\n<sup><<stereotype>></sup>\n[FC-id]" as name
+!define FC(id, name, title) participant "<b>title</b>\n<sup> </sup>\n[FC-id]" as name
+
+autonumber "<b>[00]"
+hide footbox
+
+!include FCs.iuml

@@ -1,0 +1,4 @@
+= Machine Setup
+:last-update-label!:
+
+This repository provides the details for how new teammembers can update bootstrap their machine.

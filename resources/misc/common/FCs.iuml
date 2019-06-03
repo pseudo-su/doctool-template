@@ -1,0 +1,36 @@
+
+/'
+--------------------------------------------------
+Assumptions
+--------------------------------------------------
+'/
+ 
+/'
+--------------------------------------------------
+Common Sequences
+--------------------------------------------------
+'/
+ 
+/'
+--------------------------------------------------
+Common Components
+--------------------------------------------------
+'/
+!define ACT_AUTH_USER       actor AuthUser      as "Authenticated User"
+!define ACT_UNAUTH_USER 	actor UnAuthUser 	as "Unauthenticated User"
+
+!define FC_AUTH_CLIENT  FC(XX, AUTH_CLIENT, Generic Authenticated Client)
+
+!define FC_APIGEE_GW 	FC(XXX, APIGEE_GW, Apigee Gateway, gateway)
+!define FC_GEN_AM  		FC(XXX, GEN_AM, Access Management, access management)
+!define FC_GEN_DIR  	FC(XXX, GEN_DIR, Directory, ldap)
+
+!define FC_AWS_IAM      FC(XXX, AWS_IAM, Cognito, AWS)
+!define FC_AWS_SNS      FC(XXX, AWS_SNS, SNS, AWS)
+!define FC_AWS_ELB      FC(XXX, AWS_ELB, Elastic Load Balancer, AWS)
+!define FC_AWS_DDB      FC(XXX, AWS_DDB, DynamoDB, AWS)
+!define FC_AWS_KINESIS  FC(XXX, AWS_KINESIS, Kinesis, AWS)
+
+!define FC_SOME_SERVICE  	FC(XXX, ACC_LINK, Some Feature, microservice)
+
+!define FC_MATCHFOUND   FC(XXX, MATCHFOUND, MatchFound, Lambda)

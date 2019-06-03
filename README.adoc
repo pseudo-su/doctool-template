@@ -50,7 +50,6 @@ $ serve -s docs
 
 * `resources/*.adoc` generates:
 ** `docs/*.html`
-** `docs/*.pdf`
 * `*.openapi.yml` (v3) generates:
 ** `*.openapi.redoc.html`
 
@@ -59,7 +58,6 @@ NOTE: swagger2markup is link:https://github.com/Swagger2Markup/swagger2markup/is
 * `*.swagger.yml` (v2) generates:
 ** `*.swagger.redoc.html`
 ** `*.swagger.doc.html`
-** `*.swagger.doc.pdf`
 * `*.mxgraph.xml` generates:
 ** `*.mxgraph.html`
 

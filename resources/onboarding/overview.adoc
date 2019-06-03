@@ -1,0 +1,7 @@
+= Architecture Overview
+:last-update-label!:
+
+== Overview Diagram
+
+.Overview Diagram
+mxgraph::overview.mxgraph.html[]

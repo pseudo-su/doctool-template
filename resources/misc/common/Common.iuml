@@ -1,0 +1,18 @@
+/'
+--------------------------------------------------
+Presentation elements
+--------------------------------------------------
+'/
+skinparam defaultFontName Segoe UI
+skinparam defaultFontSize 12
+skinparam sequenceParticipantBorderColor #Black
+ 
+!define TITLE(text) title <u>text</u>
+!define EXTEND #CB8F98
+!define NEW #CB8F98
+
+!define FLOW(name, args) name\n<i>(args)</i>
+!define URL(verb, url) verb <i>url</i>
+!define URL(verb, url, args) verb <i>url</i>\n<i>(args)</i>
+
+

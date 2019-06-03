@@ -1,0 +1,25 @@
+
+!include Common.iuml
+
+!define FC(id, name, title, stereotype) [<b>title</b>\n<sup><<stereotype>></sup>\n&#91;FC-id&#93;] as name
+!define FC(id, name, title) [<b>title</b>\n<sup> </sup>\n&#91;FC-id&#93;] as name
+
+!include FCs.iuml
+
+/'
+--------------------------------------------------
+Modify colour of connectors for New and eXtend
+--------------------------------------------------
+'/
+skinparam componentArrowColor #DarkGray
+!define N [#A80036]
+!define X [#A80036]
+
+!definelong _LEGEND
+rectangle "Legend" {
+	[<b>Component</b>\nNew or Extend] as C1 NEW
+	[<b>Component</b>\nNo Change] as C2
+	C1 -r--> C2 : no change
+	C1 -N--> C2 : new or extend
+}
+!enddefinelong

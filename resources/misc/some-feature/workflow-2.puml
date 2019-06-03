@@ -1,0 +1,43 @@
+@startuml
+
+!include ../common/Seq.iuml
+!define FC_VALIDATOR FC(XXX, VALIDATOR, Feature Request Validator)
+
+TITLE(ENC - Some Feature - v0.1)
+
+== FOR REFERENCE ONLY ==
+
+FC_AUTH_CLIENT
+FC_APIGEE_GW
+
+box "Some Feature (Zone 1)"
+FC_SOME_SERVICE
+end box
+FC_AWS_IAM
+FC_AWS_DDB
+FC_AWS_SNS
+
+AUTH_CLIENT --> APIGEE_GW : authenticate scope=some-feat:read
+APIGEE_GW --> AWS_IAM
+APIGEE_GW <-- AWS_IAM : JWT some-feat:read
+AUTH_CLIENT <-- APIGEE_GW
+AUTH_CLIENT --> APIGEE_GW : FLOW(GET /features, request all Features for profileId, JWT)
+activate APIGEE_GW
+    APIGEE_GW --> SOME_SERVICE
+    activate SOME_SERVICE
+        SOME_SERVICE --> SOME_SERVICE : validate JWT (scope=some-feat:read)
+        SOME_SERVICE --> AWS_DDB : get features (profileId)
+    APIGEE_GW <-- SOME_SERVICE : Features
+    deactivate SOME_SERVICE
+alt Feature Created
+AUTH_CLIENT <-- APIGEE_GW : FLOW(200, OK)
+else Error Forbidden
+AUTH_CLIENT <-- APIGEE_GW : FLOW(403, Forbidden)
+else Error Not Found
+AUTH_CLIENT <-- APIGEE_GW : FLOW(404, Not Found)
+else Error Internal Server Error
+AUTH_CLIENT <-- APIGEE_GW : FLOW(500, Internal Server Error)
+end alt
+deactivate APIGEE_GW
+
+@enduml

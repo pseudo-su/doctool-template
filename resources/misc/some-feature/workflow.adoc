@@ -1,0 +1,16 @@
+= Some Feature Workflows
+:last-update-label!:
+
+== Workflow 1
+
+[plantuml, diagram-classes, png]     
+....
+include::workflow-1.puml[]
+....
+
+== Workflow 2
+
+[plantuml, diagram-classes, png]     
+....
+include::workflow-2.puml[]
+....

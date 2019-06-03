@@ -36,5 +36,5 @@ generate_html_file () {
     $full_file_path
 }
 
-generate_pdf_file $1
+# generate_pdf_file $1
 generate_html_file $1

@@ -1,0 +1,8 @@
+== Glossary
+:last-update-label!:
+
+[width="100%",cols="37%,63%",options="header",]
+|===
+|Acronym |Definition
+|AWS |Amazon Web Services
+|===

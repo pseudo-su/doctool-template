@@ -1,0 +1,59 @@
+= Example decision record
+:last-update-label!:
+
+* Status: proposed
+* Deciders: @bob
+* Date: 2019-01-01
+
+Technical Story: #1111
+
+== Context and Problem Statement
+
+This describes the problem
+
+== Decision Drivers
+
+* [reason 1]
+* [reason 2]
+
+== Considered Options
+
+* [option 1]
+* [option 2]
+* [option 3]
+
+== Decision Outcome
+
+Chosen option: "[option 1]", because I like it.
+
+=== Positive Consequences
+
+* Things are better
+
+=== Negative Consequences
+
+* Things are worse
+
+== Pros and Cons of the Options
+
+=== Option 1
+
+Example embedded image:
+
+image:0001-ping-mfa.png[Ping MFA,role="right"]
+
+* Good, because [argument a]
+* Good, because [argument b]
+* Bad, because [argument c]
+
+=== Option 2
+
+* Good, because [argument a]
+* Good, because [argument b]
+* Bad, because [argument c]
+
+=== Option 3
+
+* Good, because [argument a]
+* Good, because [argument b]
+* Bad, because [argument c]

@@ -1,0 +1,74 @@
+@startuml
+
+!include ../common/Seq.iuml
+!define FC_VALIDATOR FC(XXX, VALIDATOR, Some Feature Request Validator)
+
+TITLE(Some Feature - v0.1)
+
+== FOR REFERENCE ONLY ==
+
+FC_AUTH_CLIENT
+FC_APIGEE_GW
+
+box "Some Feature (Zone 1)"
+FC_SOME_SERVICE
+FC_VALIDATOR
+end box
+FC_AWS_IAM
+FC_AWS_DDB
+FC_AWS_KINESIS
+FC_MATCHFOUND
+FC_AWS_SNS
+
+FC_SOMEADAPTER
+
+box "core"
+FC_SOMETHING
+end box
+
+AUTH_CLIENT --> APIGEE_GW : authenticate scope=some-feat:create
+APIGEE_GW --> AWS_IAM
+APIGEE_GW <-- AWS_IAM : JWT some-feat:create
+AUTH_CLIENT <-- APIGEE_GW
+AUTH_CLIENT --> APIGEE_GW : FLOW(POST /feature, submit, JWT)
+activate APIGEE_GW
+    APIGEE_GW --> SOME_SERVICE
+    activate SOME_SERVICE
+        SOME_SERVICE --> SOME_SERVICE : validate JWT (scope=some-feat:create)
+        SOME_SERVICE --> VALIDATOR
+        activate VALIDATOR
+            VALIDATOR --> AWS_DDB : exists(ID number)?
+            VALIDATOR <-- AWS_DDB : no
+            VALIDATOR --> AWS_DDB : featExceeded(ID number)?
+            VALIDATOR <-- AWS_DDB : no
+            VALIDATOR --> AWS_DDB : someFeatureAttemptLimitExceeded(ID number)?
+            VALIDATOR <-- AWS_DDB : no
+            VALIDATOR --> SOMETHING : FLOW(GET /getAccountDashboard (SC24), ID number)
+            activate SOMETHING
+                VALIDATOR <-- SOMETHING : FLOW(200, AccountSummary)
+            deactivate SOMETHING
+            VALIDATOR <- VALIDATOR : validate(canCreateSomeFeature)
+            SOME_SERVICE <-- VALIDATOR : valid
+        deactivate VALIDATOR
+
+        SOME_SERVICE --> SOME_SERVICE : create some feature (\n profileId,\n idNumber\n, createdAt\n modifiedAt)
+        SOME_SERVICE --> AWS_DDB : save status=PENDING_VERIFICATION
+        SOME_SERVICE --> AWS_KINESIS : publish MatchFound
+        AWS_KINESIS <-- MATCHFOUND
+        MATCHFOUND --> SOMEADAPTER : FLOW(POST /feature, create a feature)
+        SOMEADAPTER --> SOMETHING
+        SOME_SERVICE --> AWS_SNS: OTP
+    APIGEE_GW <-- SOME_SERVICE : SomeFeature
+    deactivate SOME_SERVICE
+alt Some Feature Created
+AUTH_CLIENT <-- APIGEE_GW : FLOW(201, created Some Feature)
+else Error Bad Request
+AUTH_CLIENT <-- APIGEE_GW : FLOW(400, Bad Request)
+else Error Forbidden
+AUTH_CLIENT <-- APIGEE_GW : FLOW(403, Forbidden)
+else Error Internal Server Error
+AUTH_CLIENT <-- APIGEE_GW : FLOW(500, Internal Server Error)
+end alt
+deactivate APIGEE_GW
+
+@enduml
