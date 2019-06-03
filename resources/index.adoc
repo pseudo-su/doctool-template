@@ -24,8 +24,9 @@
 
 * link:misc/some-feature/workflow.html[Some Feature Workflow]
 
-== Example Generated diagrams
+== Examples
 
+.Ditaa Diagram
 [ditaa]
 ....
                    +-------------+
@@ -46,6 +47,7 @@
      +-----------------------------------+
 ....
 
+.PlantUML Diagram
 [plantuml, diagram-classes, png]     
 ....
 class BlockProcessor
@@ -58,6 +60,7 @@ DiagramBlock <|-- DitaaBlock
 DiagramBlock <|-- PlantUmlBlock
 ....
 
+.Javascript code snippet
 [source, javascript]     
 ....
 const example = {};
@@ -69,3 +72,10 @@ function myFunction() {
     return example2;
 }
 ....
+
+.Bash code snippet
+[source, bash]
+----
+# serve static assets using web server
+$ ./run-some-command ./inputfile.txt ./outputfile.txt
+----

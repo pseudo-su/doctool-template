@@ -9,7 +9,7 @@ Repository to document and contribute to design documenation
 
 1. Install dependencies
 +
-[bash]
+[source, bash]
 ----
 # Asciidoctor for asciidoc and PlantUML support
 $ gem install pygments.rb
@@ -38,7 +38,7 @@ $ npm install -g git+https://git@github.com:languitar/drawio-batch.git
 
 2. Build
 +
-[bash]
+[source, bash]
 ----
 # Compile all .adoc files to .pdf
 $ ./build-all.sh
@@ -46,7 +46,7 @@ $ ./build-all.sh
 
 3. Run
 +
-[bash]
+[source, bash]
 ----
 # serve static assets using web server
 $ serve -s docs
