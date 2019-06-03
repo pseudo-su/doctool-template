@@ -1,5 +1,6 @@
 = Example Documentation Website
 :last-update-label!:
+:source-highlighter: pygments
 
 == Onboarding and overview
 
@@ -55,4 +56,16 @@ class PlantUmlBlock
 BlockProcessor <|-- DiagramBlock
 DiagramBlock <|-- DitaaBlock
 DiagramBlock <|-- PlantUmlBlock
+....
+
+[source, javascript]     
+....
+const example = {};
+const example2 = {};
+
+function myFunction() {
+    // This makes no sense
+    console.log(example);
+    return example2;
+}
 ....

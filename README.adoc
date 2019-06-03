@@ -12,10 +12,14 @@ Repository to document and contribute to design documenation
 [bash]
 ----
 # Asciidoctor for asciidoc and PlantUML support
+$ gem install pygments.rb
 $ gem install asciidoctor
 $ gem install asciidoctor-diagram
 https://github.com/eshepelyuk/asciidoctor-plantuml.js/blob/master/README.adoc
 $ gem install asciidoctor-pdf --pre
+
+# Pygments for code block highlighting support
+$ gem install pygments.rb
 
 # Redoc for Openapi/Swagger support
 $ npm install -g redoc-cli
