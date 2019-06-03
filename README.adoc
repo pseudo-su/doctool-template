@@ -86,3 +86,13 @@ NOTE: You can embed the generated mxgraph html using `mxgraph::eapi.mxgraph.html
 
 * investigate switching to [ link:https://github.com/eshepelyuk/asciidoctor-plantuml.js/blob/master/README.adoc[diagrams's] | link:https://github.com/asciidoctor/asciidoctor.js/issues/102[pdf's] | link:https://github.com/asciidoctor/asciidoctor.js/issues/427[source syntax highlighting]]
 * Investigate better replacement for `./build-single-mxgraph.sh` that can actually export images
+* Publish a docker image that obfuscates the hodge-podge of different tools from the project
++
+.Example
+[source, bash]
+....
+$ docker run \
+  --mount type=bind,source=./resources,target=/input \
+  --mount type=bind,source=./docs,target=/output \
+  doctool-generator-imagename
+....
