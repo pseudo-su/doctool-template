@@ -1,0 +1,92 @@
+= [short title of solved problem and solution]
+:last-update-label!:
+
+// Optional
+* Status: [proposed | rejected | accepted | deprecated | … | superseded by [ADR-0005](0005-example.md)]
+// Optional
+* Deciders: [list everyone involved in the decision]
+// Optional
+* Date: [YYYY-MM-DD when the decision was last updated]
+
+// Optional
+Technical Story: [description | ticket/issue URL]
+
+== Context and Problem Statement
+
+[Describe the context and problem statement, e.g., in free form using two to three sentences. You may want to articulate the problem in form of a question.]
+
+// Optional
+== Decision Drivers
+
+// Number of drivers can vary
+* [driver 1, e.g., a force, facing concern, …]
+* [driver 2, e.g., a force, facing concern, …]
+* …
+
+== Considered Options
+
+// Number of options can vary
+* [option 1]
+* [option 2]
+* [option 3]
+* …
+
+== Decision Outcome
+
+Chosen option: "[option 1]", because [justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force force | … | comes out best (see below)].
+
+// Optional
+=== Positive Consequences
+
+* [e.g., improvement of quality attribute satisfaction, follow-up decisions required, …]
+* …
+
+// Optional
+=== Negative Consequences
+
+* [e.g., compromising quality attribute, follow-up decisions required, …]
+* …
+
+// Optional
+== Pros and Cons of the Options
+
+=== [option 1]
+
+// Optional
+[example | description | pointer to more information | …]
+
+// Number of pros and cons can vary
+* Good, because [argument a]
+* Good, because [argument b]
+* Bad, because [argument c]
+* …
+
+=== [option 2]
+
+//Optional
+[example | description | pointer to more information | …]
+
+// Number of pros and cons can vary
+* Good, because [argument a]
+* Good, because [argument b]
+* Bad, because [argument c]
+* …
+
+=== [option 3]
+
+// Optional
+[example | description | pointer to more information | …]
+
+// Number of pros and cons can vary
+* Good, because [argument a]
+* Good, because [argument b]
+* Bad, because [argument c]
+* …
+
+// Optional
+== Links
+
+// Number of links can vary
+// example: Refined by link:0005-example.md[ADR-0005]
+* [Link type] [Link to ADR]
+* …

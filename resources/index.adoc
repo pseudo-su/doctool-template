@@ -18,7 +18,7 @@
 
 == Architectural Decision Records
 
-* link:decisions/0001/0001-example-decision-record.html[0001 Example decision record]
+* link:decision-records/0001/0001-example-decision-record.html[0001 Example decision record]
 
 == Miscellaneous Docs
 

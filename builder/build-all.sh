@@ -1,8 +1,6 @@
 #!/bin/bash
 set -Eeuo pipefail
 
-echo "Building:"
-
 # Build Adoc's
 find input -type f -name '*.adoc' | xargs -L1 ./build-single-adoc.sh
 

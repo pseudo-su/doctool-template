@@ -42,6 +42,7 @@ RUN apk add --no-cache \
     ruby-mathematical \
     ttf-liberation \
     unzip \
+    vim \
     which \
     wget
 
@@ -97,8 +98,6 @@ RUN apk add --no-cache --virtual .pythonmakedepends \
 RUN npm install -g "redoc-cli@${REDOC_CLI_VERSION}"
 
 ADD ./build-all.sh ./build-single-adoc.sh ./build-single-mxgraph.sh ./build-single-openapi.sh ./mxgraph_asciidoc_ext.rb ./
-
-RUN apk add vim
 
 VOLUME ["/build/input", "/build/output"]
 ENTRYPOINT ["./build-all.sh"]

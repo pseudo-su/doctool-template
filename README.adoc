@@ -24,6 +24,11 @@ The main goal of this project is to have as much documenation as possible tracke
 +
 [source, bash]
 ----
+# Build the builder
+$ docker build -t doctool-builder ./builder
+# Clean docs/
+$ ./clean.sh
+# Build docs/
 $ ./build.sh
 ----
 
