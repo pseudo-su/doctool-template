@@ -73,7 +73,7 @@ This project looks at all files in the `resources/` folder and generates corresp
 * `*.openapi.yml` (v3) generates:
 ** `*.openapi.redoc.html`
 
-NOTE: unable to geneate `doc.html` at the moment because swagger2markup link:https://github.com/Swagger2Markup/swagger2markup/issues/340[does not support] openapi (v3)
+NOTE: unable to geneate `*.doc.html` at the moment for openapi because swagger2markup link:https://github.com/Swagger2Markup/swagger2markup/issues/340[does not support] it (v3)
 
 * `*.swagger.yml` (v2) generates:
 ** `*.swagger.redoc.html`
