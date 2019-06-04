@@ -15,7 +15,7 @@ class MxgraphBlockMacro < Asciidoctor::Extensions::BlockMacroProcessor
 
     html = %(
       <div class="openblock mxgraph" style="#{width_height}#{style}">
-        <iframe src="#{target}" style="width: 100%; height: 100%;"></iframe>
+        <iframe src="#{target}" style="border: none; width: 100%; height: 100%;"></iframe>
       </div>
     )
 

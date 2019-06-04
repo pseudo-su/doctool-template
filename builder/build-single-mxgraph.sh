@@ -27,6 +27,16 @@ test=$(cat <<EOF
 <head>
 <title>diagram</title>
 <meta charset="utf-8"/>
+<style>
+html, body, .geDiagramContainer {
+  height: 100% !important;
+  width: 100% !important;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+</style>
 </head>
 <body><div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile userAgent=\&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36\&quot; version=\&quot;7.3.5\&quot; editor=\&quot;www.draw.io\&quot; type=\&quot;device\&quot;&gt;&lt;$diag&gt;&lt;/mxfile&gt;&quot;}"></div>
 <script type="text/javascript" src="https://www.draw.io/embed2.js?s=aws3;mscae/enterprise;gcp/networking;citrix&"></script>
